@@ -3,7 +3,6 @@ import unittest
 import math
 
 import sys
-# setting path
 sys.path.append('../projet_ci')
 
 from geometry import rectangle_area, rectangle_perimeter, circle_area, circle_circumference
