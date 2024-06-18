@@ -1,12 +1,20 @@
+# coding=utf-8
 import unittest
 import math
 
-from src.geometry import rectangle_area, rectangle_perimeter, circle_area, circle_circumference
+#from geometry import rectangle_area, rectangle_perimeter, circle_area, circle_circumference
+
+import importlib.util as ilu
+folder = '../src'
+file = 'geometry'
+spec = ilu.spec_from_file_location(file, folder)
+geometry = ilu.module_from_spec(spec)
+spec.loader.exec_module(your_lib)
 
 class TestGeometricFunctions(unittest.TestCase):
 
     def test_rectangle_area(self):
-        # Tests de cas normaux
+    # Tests de cas normaux
         self.assertEqual(rectangle_area(5, 3), 15)
         self.assertEqual(rectangle_area(7, 2), 14)
         
