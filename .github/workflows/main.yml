@@ -1,0 +1,39 @@
+name: Projet-CI Pythagore
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Run unit tests
+      run: |
+        python test/test_geometry.py -v
+
+    - name: Install Doxygen
+      run: sudo apt-get install -y doxygen 
+
+    - name: Generate documentation
+      run: doxygen Doxyfile
+
+    - name: Deploy documentation to GitHub Pages
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add docs
+        git commit -m 'Generate and update documentation'
+        git push origin master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
