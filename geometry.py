@@ -1,4 +1,4 @@
-# src/geometry.py
+# coding=utf-8
 import math
 
 

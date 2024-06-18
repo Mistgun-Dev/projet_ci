@@ -2,8 +2,14 @@
 import unittest
 import math
 
-from ..src import geometry
+import sys
+# setting path
+sys.path.append('../projet_ci')
+
 from geometry import rectangle_area, rectangle_perimeter, circle_area, circle_circumference
+
+if __name__ == '__main__':
+    print(__package__)
 
 class TestGeometricFunctions(unittest.TestCase):
 
