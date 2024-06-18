@@ -2,14 +2,8 @@
 import unittest
 import math
 
-#from geometry import rectangle_area, rectangle_perimeter, circle_area, circle_circumference
-
-import importlib.util as ilu
-folder = '../src'
-file = 'geometry'
-spec = ilu.spec_from_file_location(file, folder)
-geometry = ilu.module_from_spec(spec)
-spec.loader.exec_module(your_lib)
+from ..src import geometry
+from geometry import rectangle_area, rectangle_perimeter, circle_area, circle_circumference
 
 class TestGeometricFunctions(unittest.TestCase):
 
